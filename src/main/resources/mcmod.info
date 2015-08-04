@@ -1,0 +1,16 @@
+[
+{
+  "modid": "PowerConverter",
+  "name": "PowerConverter",
+  "description": "Implements power conversions between mods",
+  "version": "1.0",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Ratismal"],
+  "credits": "Thanks to everyone in the Hysteria Unleashed community",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
