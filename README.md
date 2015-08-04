@@ -1,2 +1,3 @@
-== PowerConverter ==
+# PowerConverter
+
 More info to come 
