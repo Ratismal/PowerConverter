@@ -11,6 +11,6 @@
   "credits": "Thanks to everyone in the Hysteria Unleashed community",
   "logoFile": "",
   "screenshots": [],
-  "dependencies": []
+  "dependencies": ["IC2", "CoFHCore", "ThermalFoundation"]
 }
 ]

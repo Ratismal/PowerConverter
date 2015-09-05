@@ -36,6 +36,9 @@ dependencies {
     //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
     //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
 
+    //compile files("C:/Users/Other/Dropbox/Workspace - Java/Forge/PowerConverter/eclipse/mods/industrialcraft-2-2.2.759-experimental-dev.jar")
+    //compile files("C:/Users/Other/Dropbox/Workspace - Java/Forge/PowerConverter/eclipse/mods/CoFHCore-[1.7.10]3.0.3-303-dev.jar")
+    //compile files("C:/Users/Other/Dropbox/Workspace - Java/Forge/PowerConverter/eclipse/mods/ThermalFoundation-[1.7.10]1.2.0-102-dev.jar")
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html

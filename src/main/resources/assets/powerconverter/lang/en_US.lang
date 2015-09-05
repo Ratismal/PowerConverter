@@ -1,0 +1,8 @@
+
+
+#Blocks
+tile.powerconverter:testMachine.name=Test Machine
+
+#Items
+item.powerconverter:testModule.name=Test Module
+item.powerconverter:blankModule.name=Blank Module
