@@ -24,8 +24,21 @@ group= "io.github.ratismal.powerconverter" // http://maven.apache.org/guides/min
 archivesBaseName = "PowerConverter"
 
 minecraft {
-    version = "1.7.10-10.13.4.1448-1.7.10"
+    version = "1.7.10-10.13.4.1492-1.7.10"
     runDir = "eclipse/assets"
+}
+
+repositories {
+
+    maven { // The repo from which to get waila
+        name "Mobius Repo"
+        url "http://mobiusstrip.eu/maven"
+    }
+    maven { // the repo from which to get NEI and stuff
+        name 'CB Repo'
+        url "http://chickenbones.net/maven/"
+    }
+
 }
 
 dependencies {
@@ -40,10 +53,12 @@ dependencies {
 
     //compile files("C:/Users/Other/Dropbox/Workspace - Java/Forge/PowerConverter/eclipse/mods/industrialcraft-2-2.2.759-experimental-dev.jar")
     //compile files("C:/Users/Other/Dropbox/Workspace - Java/Forge/PowerConverter/eclipse/mods/CoFHCore-[1.7.10]3.0.3-303-dev.jar")
-    //compile files("C:/Users/Other/Dropbox/Workspace - Java/Forge/PowerConverter/eclipse/mods/ThermalFoundation-[1.7.10]1.2.0-102-dev.jar")
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+
+    compile fileTree(dir: 'lib', includes: ['*.jar'])
+    compile "mcp.mobius.waila:Waila:1.5.10_1.7.10"
 
 }
 

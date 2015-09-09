@@ -4,6 +4,7 @@ import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import io.github.ratismal.powerconverter.reference.Reference;
 import net.minecraftforge.common.config.Configuration;
+import org.apache.http.impl.cookie.RFC2109VersionHandler;
 
 import java.io.File;
 
@@ -76,5 +77,9 @@ public class ConfigHandler {
 	public static int getTestMachineReceiveRF() {
 		return testMachineReceiveRF;
 	}
+
+    public static int getRFValue() { return rfValue;}
+
+    public static int getEUValue() { return euValue;}
 
 }

@@ -2,6 +2,7 @@ package io.github.ratismal.powerconverter;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.Mod;
@@ -37,7 +38,7 @@ public class PowerConverter {
 
 		ModItems.init();
 		ModBlocks.init();
-
+        FMLInterModComms.sendMessage("Waila", "register", "io.github.ratismal.powerconverter.WailaSupport.callbackRegister");
 		Logger.info("Pre-Init Complete");
 
 	}

@@ -13,7 +13,8 @@ public class ItemPC extends Item {
 	public ItemPC() {
 
 		super();
-		this.maxStackSize = 1;
+
+		this.setMaxStackSize(1);
 		this.setCreativeTab(CreativeTabPC.PC_TAB);
 
 	}
