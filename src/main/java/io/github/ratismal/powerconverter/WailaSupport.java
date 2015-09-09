@@ -21,7 +21,7 @@ import cpw.mods.fml.common.Optional;
  * we can't directly reference the interface as it may not be installed, the first parameter is a string
  * which represents the class path for this interface.
  */
-@Optional.Interface(iface = "mcp.mobius.waila.api.IWailaDataProvider", modid = "Waila")
+@Optional.Interface(iface = "mcp.mobius.waila.cofh.api.IWailaDataProvider", modid = "Waila")
 public class WailaSupport implements IWailaDataProvider {
 
     /**
