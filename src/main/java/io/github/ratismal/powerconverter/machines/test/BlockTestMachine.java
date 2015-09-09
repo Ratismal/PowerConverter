@@ -13,9 +13,7 @@ public class BlockTestMachine extends BaseBlock {
 		super();
 		this.setBlockName(Names.testMachine);
 
-
 	}
-
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int metadata) {
