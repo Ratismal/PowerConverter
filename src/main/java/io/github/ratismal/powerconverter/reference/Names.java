@@ -15,4 +15,10 @@ public class Names {
 	 */
 	public static final String testMachine = "testMachine";
 
+
+	public static final class NBT {
+
+		public static final String direction = "teDirection";
+
+	}
 }

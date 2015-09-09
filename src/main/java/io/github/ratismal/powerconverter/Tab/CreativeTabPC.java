@@ -1,4 +1,4 @@
-package io.github.ratismal.powerconverter.Tab;
+package io.github.ratismal.powerconverter.tab;
 
 import io.github.ratismal.powerconverter.init.ModItems;
 import io.github.ratismal.powerconverter.reference.Reference;

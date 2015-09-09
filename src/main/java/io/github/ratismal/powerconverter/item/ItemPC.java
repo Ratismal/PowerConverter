@@ -2,10 +2,9 @@ package io.github.ratismal.powerconverter.item;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import io.github.ratismal.powerconverter.Tab.CreativeTabPC;
+import io.github.ratismal.powerconverter.tab.CreativeTabPC;
 import io.github.ratismal.powerconverter.reference.Reference;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 

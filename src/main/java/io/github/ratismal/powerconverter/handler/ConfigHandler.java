@@ -14,6 +14,11 @@ public class ConfigHandler {
 	private static boolean rfEnabled;
 	private static boolean euEnabled;
 
+	//Machines
+	private static int testMachineCapacityRF;
+	private static int testMachineReceiveRF;
+
+
 	public static Configuration config;
 
 	public static void init(File configFile) {
@@ -50,12 +55,26 @@ public class ConfigHandler {
 		rfValue = config.get("Conversion", "rfValue", 100, "How much 1 RF is worth in CATs").getInt(100);
 		euValue = config.get("Conversion", "euValue", 25, "How much 1 EU is worth in CATs").getInt(25);
 
+		//Machines
+		testMachineCapacityRF = config.get("TestMachineCapacityRF", "Machines", 1000000,
+				"How much a Test Machine can hold (RF)").getInt(1000000);
+		testMachineReceiveRF = config.get("TestMachineReceiveRF", "Machines", 1000000,
+				"How much a Test Machine can receive per tick (RF)").getInt(1000000);
+
 		if (config.hasChanged()) {
 
 			config.save();
 
 		}
 
+	}
+
+	public static int getTestMachineCapacityRF() {
+		return testMachineCapacityRF;
+	}
+
+	public static int getTestMachineReceiveRF() {
+		return testMachineReceiveRF;
 	}
 
 }
