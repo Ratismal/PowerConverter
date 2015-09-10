@@ -38,7 +38,7 @@ public class PowerConverter {
 
 		ModItems.init();
 		ModBlocks.init();
-        FMLInterModComms.sendMessage("Waila", "register", "io.github.ratismal.powerconverter.WailaSupport.callbackRegister");
+        FMLInterModComms.sendMessage("Waila", "register", "io.github.ratismal.powerconverter.waila.WailaSupport.load");
 		Logger.info("Pre-Init Complete");
 
 	}

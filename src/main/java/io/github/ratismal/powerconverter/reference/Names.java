@@ -13,7 +13,7 @@ public class Names {
 	/**
 	 * Blocks
 	 */
-	public static final String testMachine = "testMachine";
+	public static final String testMachineRF = "testMachineRF";
 
 
 	public static final class NBT {

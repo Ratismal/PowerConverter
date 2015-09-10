@@ -1,6 +1,7 @@
-package io.github.ratismal.powerconverter.tileentity;
+package io.github.ratismal.powerconverter.base.tiles;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
@@ -70,6 +71,8 @@ public class BaseTileEntity extends TileEntity {
 
     }
 
+    public void onSlotChanged(int index, ItemStack stack) {
+    }
 
     public boolean setOwner(EntityPlayer player) {
         if (ownerUUID != null) {

@@ -1,7 +1,7 @@
 
 
 #Blocks
-tile.powerconverter:testMachine.name=Test Machine
+tile.powerconverter:testMachineRF.name=Test Machine - RF
 
 #Items
 item.powerconverter:testModule.name=Test Module
