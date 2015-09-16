@@ -1,8 +1,8 @@
 [
 {
-  "modid": "PowerConverter",
-  "name": "PowerConverter",
-  "description": "Implements power conversions between mods",
+  "modid": "FelineUtilities",
+  "name": "Feline Utilities",
+  "description": "Miscellaneous goodies",
   "version": "1.0",
   "mcversion": "${mcversion}",
   "url": "",
