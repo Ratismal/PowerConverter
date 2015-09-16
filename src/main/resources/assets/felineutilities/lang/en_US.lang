@@ -1,0 +1,9 @@
+
+
+#Blocks
+tile.felineutilities:testMachineRF.name=Test Machine - RF
+
+#Items
+item.felineutilities:testModule.name=Test Module
+item.felineutilities:blankModule.name=Blank Module
+item.felineutilities:plunderEye.name=Eye of Plunder
