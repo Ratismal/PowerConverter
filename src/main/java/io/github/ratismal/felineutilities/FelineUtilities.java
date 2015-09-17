@@ -8,12 +8,15 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import io.github.ratismal.felineutilities.Listeners.PlayerRenderListener;
 import io.github.ratismal.felineutilities.handler.ConfigHandler;
 import io.github.ratismal.felineutilities.init.ModBlocks;
 import io.github.ratismal.felineutilities.init.ModItems;
+import io.github.ratismal.felineutilities.init.Whitelist;
 import io.github.ratismal.felineutilities.proxy.IProxy;
 import io.github.ratismal.felineutilities.reference.Reference;
 import io.github.ratismal.felineutilities.util.Logger;
+import net.minecraftforge.common.MinecraftForge;
 
 
 /**
@@ -38,6 +41,7 @@ public class FelineUtilities {
 
 		ModItems.init();
 		ModBlocks.init();
+        Whitelist.init();
         FMLInterModComms.sendMessage("Waila", "register", "io.github.ratismal.felineutilities.waila.WailaSupport.load");
 		Logger.info("Pre-Init Complete");
 
@@ -45,7 +49,8 @@ public class FelineUtilities {
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-
+        MinecraftForge.EVENT_BUS.register(new PlayerRenderListener());
+        //FMLCommonHandler.instance().bus().register(new PlayerRenderListener());
 		Logger.info("Init Complete");
 
 	}

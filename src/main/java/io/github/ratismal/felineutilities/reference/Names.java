@@ -7,6 +7,7 @@ public class Names {
         public static final String testModule = "testModule";
         public static final String blankModule = "blankModule";
         public static final String plunderEye = "plunderEye";
+        public static final String brokenCamera= "brokenCamera";
     }
 
     public static final class Blocks {
