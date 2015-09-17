@@ -2,9 +2,9 @@ package io.github.ratismal.felineutilities.item;
 
 import io.github.ratismal.felineutilities.reference.Names;
 
-public class ItemTestModule extends ItemFU {
+public class ItemModuleBlank extends ItemFU {
 
-	public ItemTestModule() {
+	public ItemModuleBlank() {
 
 		super();
 		this.setUnlocalizedName(Names.Items.testModule);

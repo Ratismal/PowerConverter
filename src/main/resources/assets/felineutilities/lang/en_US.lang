@@ -1,10 +1,10 @@
-
-
 #Blocks
 tile.felineutilities:testMachineRF.name=Test Machine - RF
 
 #Items
-item.felineutilities:testModule.name=Test Module
-item.felineutilities:blankModule.name=Blank Module
-item.felineutilities:plunderEye.name=Eye of Plunder
-item.felineutilities:brokenCamera.name=Broken Camera
+item.felineutilities:moduleTest.name=Test Module
+item.felineutilities:moduleBlank.name=Blank Module
+item.felineutilities:eyePlunder.name=Eye of Plunder
+item.felineutilities:cameraBroken.name=Broken Camera
+item.felineutilities:featherHeavy.name=Heavy Feather
+item.felineutilities:pillowTransient.name=Transient Pillow

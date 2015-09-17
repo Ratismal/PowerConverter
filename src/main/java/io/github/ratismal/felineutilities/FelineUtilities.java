@@ -36,20 +36,19 @@ public class FelineUtilities {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		ConfigHandler.init(event.getSuggestedConfigurationFile());
-		FMLCommonHandler.instance().bus().register(new ConfigHandler());
 
-		ModItems.init();
-		ModBlocks.init();
-        Whitelist.init();
-        FMLInterModComms.sendMessage("Waila", "register", "io.github.ratismal.felineutilities.waila.WailaSupport.load");
+
+        proxy.preInit(event);
+
+
 		Logger.info("Pre-Init Complete");
 
 	}
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-        MinecraftForge.EVENT_BUS.register(new PlayerRenderListener());
+        proxy.init(event);
+       // EntityRegistry.registerModEntity(EntityEyePlunder.class, "Plunder Eye Item", 5, FelineUtilities.instance, 32, 5, true);
         //FMLCommonHandler.instance().bus().register(new PlayerRenderListener());
 		Logger.info("Init Complete");
 
@@ -57,7 +56,7 @@ public class FelineUtilities {
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-
+        proxy.postInit(event);
 		Logger.info("Post-Init Complete");
 
 	}

@@ -8,7 +8,7 @@ public class ItemBlankModule extends ItemFU {
 
 		super();
 		this.setMaxStackSize(16);
-		this.setUnlocalizedName(Names.Items.blankModule);
+		this.setUnlocalizedName(Names.Items.moduleBlank);
 
 	}
 

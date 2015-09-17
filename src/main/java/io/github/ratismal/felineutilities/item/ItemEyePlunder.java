@@ -2,51 +2,43 @@ package io.github.ratismal.felineutilities.item;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import io.github.ratismal.felineutilities.entity.EntityPlunderEye;
-import io.github.ratismal.felineutilities.init.ModItems;
+import io.github.ratismal.felineutilities.entity.EntityEyePlunder;
 import io.github.ratismal.felineutilities.init.Whitelist;
 import io.github.ratismal.felineutilities.reference.Names;
 import io.github.ratismal.felineutilities.reference.Reference;
+import io.github.ratismal.felineutilities.util.Broadcaster;
 import io.github.ratismal.felineutilities.util.Logger;
-import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Created by Ratismal on 2015-09-15.
  */
 
-public class ItemPlunderEye extends ItemFU {
+public class ItemEyePlunder extends ItemFU {
 
     private IIcon filledIcon;
 
-    public ItemPlunderEye() {
+    public ItemEyePlunder() {
         super();
         this.setMaxStackSize(1);
-        this.setUnlocalizedName(Names.Items.plunderEye);
+        this.setUnlocalizedName(Names.Items.eyePlunder);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister IIconRegister) {
-        itemIcon = IIconRegister.registerIcon(Reference.RESOURCE_PREFIX + "plunderEye_0");
-        filledIcon = IIconRegister.registerIcon(Reference.RESOURCE_PREFIX + "plunderEye_1");
+        itemIcon = IIconRegister.registerIcon(Reference.RESOURCE_PREFIX + "eyePlunder_0");
+        filledIcon = IIconRegister.registerIcon(Reference.RESOURCE_PREFIX + "eyePlunder_1");
     }
 
     @Override
@@ -78,34 +70,38 @@ public class ItemPlunderEye extends ItemFU {
 
     @Override
     public boolean itemInteractionForEntity(ItemStack item, EntityPlayer player, EntityLivingBase entity) {
-        //Logger.info("Doing checks");
-        if (entity.worldObj.isRemote) {
-            //Logger.info("Rejected - 1");
-            return false;
-        }
+        Logger.Debug.info("Doing eyePlunder checks");
+
         if (isPlundered(item)) {
-            //Logger.info("Rejected - 2");
+            Logger.Debug.info("Rejected - 2");
             return false;
         }
         if (entity instanceof EntityPlayer) {
-            //Logger.info("Rejected - 3");
+            Logger.Debug.info("Rejected - 3");
             return false;
         }
         String entityId = EntityList.getEntityString(entity);
+
         if (!isWhiteListed(entityId)) {
-            //Logger.info("Rejected - 4");
+            Logger.Debug.info("Rejected - 4");
             return false;
         }
         if (entityId.toLowerCase().equals("ozelot")) {
-            Logger.info("lol" + player.getDisplayName().toLowerCase() + "udungoofed");
+            Logger.Debug.info("lol" + player.getDisplayName().toLowerCase() + "udungoofed");
             player.setHealth(0);
-            if (player.isDead) {
-                MinecraftServer.getServer().addChatMessage(new ChatComponentText(player.getDisplayName() + " had their soul reaped by Amanojaku!"));
+            if (!entity.worldObj.isRemote) {
+                //Broadcaster.broadcastMessage(player.getDisplayName() + " had their soul reaped by Amanojaku!");
+                MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText(player.getDisplayName() + " invoked the wrath of Amanojaku!"));
+                //MinecraftServer.getServer().addChatMessage(new ChatComponentText(player.getDisplayName() + " invoked the wrath of Amanojaku!"));
             }
+            return true;
         }
-        //Logger.info("Accepted");
-        player.clearItemInUse();
-        player.worldObj.spawnEntityInWorld(new EntityPlunderEye(player.worldObj, player, entity, item));
+
+        Logger.Debug.info("Accepted, initiating absorb sequence");
+        if (!(player != null && player.capabilities.isCreativeMode)) {
+            player.setCurrentItemOrArmor(0, null);
+        }
+        player.worldObj.spawnEntityInWorld(new EntityEyePlunder(player.worldObj, player, entity, item));
         return true;
     }
 

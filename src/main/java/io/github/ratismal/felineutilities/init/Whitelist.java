@@ -26,6 +26,7 @@ public class Whitelist {
         whitelist.add("blaze");
         whitelist.add("chicken");
         whitelist.add("pig");
+        whitelist.add("ozelot");
     }
 
 }

@@ -10,7 +10,7 @@ public class CreativeTabPC {
 	public static final CreativeTabs PC_TAB = new CreativeTabs(Reference.MODID) {
 		@Override
 		public Item getTabIconItem() {
-			return ModItems.plunderEye;
+			return ModItems.eyePlunder;
 		}
 
 		@Override

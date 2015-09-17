@@ -23,7 +23,7 @@ public class ContainerTestRFMachine extends BaseContainer {
         protected void initializeSlots() {
 
 
-            addSlotBox(new SlotData(SlotType.SLOT_SPECIFICITEM, new ItemStack(ModItems.blankModule)), CONTAINER_INVENTORY, 0, 64, 24, 1, 18, 1, 18);
+            addSlotBox(new SlotData(SlotType.SLOT_SPECIFICITEM, new ItemStack(ModItems.moduleBlank)), CONTAINER_INVENTORY, 0, 64, 24, 1, 18, 1, 18);
             addSlotBox(new SlotData(SlotType.SLOT_OUTPUT), CONTAINER_INVENTORY, 1, 118, 24, 1, 18, 1, 18);
 
             layoutPlayerInventorySlots(10, 70);

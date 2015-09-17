@@ -3,12 +3,10 @@ package io.github.ratismal.felineutilities.entity;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import io.github.ratismal.felineutilities.init.ModItems;
-import io.github.ratismal.felineutilities.item.ItemPlunderEye;
-import net.minecraft.client.particle.EntityFX;
+import io.github.ratismal.felineutilities.util.Logger;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -20,7 +18,7 @@ import net.minecraft.world.World;
  * Created by Ratismal on 2015-09-16.
  */
 
-public class EntityPlunderEye extends Entity {
+public class EntityEyePlunder extends Entity {
 
     public float rotation = 0f;
     public float rotationInc = 0.5f;
@@ -31,10 +29,25 @@ public class EntityPlunderEye extends Entity {
     private double eX;
     private double eY;
     private double eZ;
+    private double motionX;
+    private double motionY;
+    private double motionZ;
+    private double parX;
+    private double parY;
+    private double parZ;
+    private double plaX;
+    private double plaY;
+    private double plaZ;
+    private int random;
     private EntityPlayer player;
     private ItemStack item;
 
-    public EntityPlunderEye(World world, EntityPlayer player, EntityLivingBase entity, ItemStack item) {
+    public EntityEyePlunder(World world) {
+        super(world);
+        this.setSize(0.25F, 0.25F);
+    }
+
+    public EntityEyePlunder(World world, EntityPlayer player, EntityLivingBase entity, ItemStack item) {
         super(world);
         this.setSize(0.25f, 0.25f);
         this.entity = entity;
@@ -75,6 +88,7 @@ public class EntityPlunderEye extends Entity {
 
         switch (phase) {
             case 0:
+
                 //tick++;
                 rotationInc += 0.1f;
                 if (tick == 100) {
@@ -93,6 +107,8 @@ public class EntityPlunderEye extends Entity {
             case 1:
                 if (checkIfValid()) {
                     returnItem();
+                } else {
+                    returnSame();
                 }
                 this.setDead();
                 break;
@@ -113,25 +129,90 @@ public class EntityPlunderEye extends Entity {
 
             }
             */
-            double motionX = rand.nextGaussian() * 0.02D;
-            double motionY = rand.nextGaussian() * 0.02D;
-            double motionZ = rand.nextGaussian() * 0.02D;
-            worldObj.spawnParticle(
-                    "happyVillager",
-                    entity.posX + rand.nextFloat() * width * 2.0F - entity.width,
-                    entity.posY + 0.5D + rand.nextFloat() * entity.height,
-                    entity.posZ + rand.nextFloat() * width * 2.0F - entity.width,
-                    motionX,
-                    motionY,
-                    motionZ);
+
+            for (int k = 0; k < 4; ++k) {
+                randomNotZero();
+                parX = entity.posX + rand.nextFloat() * entity.width * 2.0F + entity.width/2 * random;
+                parY = entity.posY + 0.5D + entity.height / 2;
+                randomNotZero();
+                parZ = entity.posZ + rand.nextFloat() * entity.width * 2.0F + entity.width/2 * random;
+
+                if (parX >= entity.posX) {
+                    motionX = 0.5D;
+                } else {
+                    motionX = -0.5D;
+                }
+                motionY = 0.5D;
+                if (parZ >= entity.posZ) {
+                    motionZ = 0.5D;
+                } else {
+                    motionZ = -0.5D;
+                }
+
+                Logger.Debug.info("Spawning a particle!");
+                entity.worldObj.spawnParticle(
+                        "portal",
+                        parX,
+                        parY,
+                        parZ,
+                        motionX,
+                        motionY,
+                        motionZ);
+            }
+
+            for (int k = 0; k < 16; ++k) {
+                parX = entity.posX - rand.nextFloat() * entity.width / 2.0F ;
+                parY = entity.posY + 0.5D + rand.nextFloat() * entity.height / 2 - 1;
+                parZ = entity.posZ - rand.nextFloat() * entity.width / 2.0F;
+
+                plaX = player.posX + player.width / 2.0F;
+                plaY = player.posY + 0.5D + player.height / 2 - 1.25;
+                plaZ = player.posZ + player.width / 2.0F ;
+
+                motionX = parX - plaX;
+                motionY = parY - plaY;
+                motionZ = parZ - plaZ;
+
+                Logger.Debug.info("Spawning another!");
+                entity.worldObj.spawnParticle(
+                        "portal",
+                        plaX,
+                        plaY,
+                        plaZ,
+                        motionX,
+                        motionY,
+                        motionZ);
+            }
+            /*
+            for (int k = 0; k < 4; ++k)
+            {
+                float f4 = 0.25F;
+                entity.worldObj.spawnParticle("crit", entity.posX - entity.motionX * (double)f4, entity.posY - entity.motionY * (double)f4, entity.posZ - entity.motionZ * (double)f4, entity.motionX, entity.motionY, entity.motionZ);
+            }
+            */
         }
 
     }
 
+    public void randomNotZero() {
+
+        switch (rand.nextInt(2)) {
+            case 1:
+                random = -1;
+                break;
+            case 2:
+                random = 1;
+                break;
+        }
+        Logger.Debug.info(random);
+
+    }
+
     public void returnSame() {
-        ItemStack plunderedEye = new ItemStack(ModItems.plunderEye);
-        player.setCurrentItemOrArmor(0, plunderedEye);
-        ((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
+        ItemStack plunderedEye = new ItemStack(ModItems.eyePlunder);
+
+        player.inventory.addItemStackToInventory(plunderedEye);
+        //((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
     }
 
     public void returnItem() {
@@ -141,7 +222,7 @@ public class EntityPlunderEye extends Entity {
         root.setString("entity", entityId);
         entity.writeToNBT(root);
 
-        ItemStack plunderedEye = new ItemStack(ModItems.plunderEye);
+        ItemStack plunderedEye = new ItemStack(ModItems.eyePlunder);
         plunderedEye.setTagCompound(root);
         /*
         if (item.stackTagCompound == null) {
@@ -161,8 +242,8 @@ public class EntityPlunderEye extends Entity {
             //    entity.worldObj.spawnEntityInWorld(new EntityItem(entity.worldObj,entity.posX, entity.posY, entity.posZ, plunderedEye));
             //}
             //player.setCurrentItemOrArmor(0, item);
-            player.setCurrentItemOrArmor(0, plunderedEye);
-            ((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
+            player.inventory.addItemStackToInventory(plunderedEye);
+            //((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
         }
 
     }

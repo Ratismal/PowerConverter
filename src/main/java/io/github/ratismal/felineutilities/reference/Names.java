@@ -4,10 +4,12 @@ public class Names {
 
 
 	public static final class Items {
-        public static final String testModule = "testModule";
-        public static final String blankModule = "blankModule";
-        public static final String plunderEye = "plunderEye";
-        public static final String brokenCamera= "brokenCamera";
+        public static final String testModule = "moduleTest";
+        public static final String moduleBlank = "moduleBlank";
+        public static final String eyePlunder = "eyePlunder";
+        public static final String cameraBroken = "cameraBroken";
+        public static final String featherHeavy = "featherHeavy";
+        public static final String pillowTransient = "pillowTransient";
     }
 
     public static final class Blocks {
