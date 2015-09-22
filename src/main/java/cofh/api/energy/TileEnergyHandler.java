@@ -5,7 +5,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
 /**
- * Reference implementation of {@link IEnergyHandler}. Use/extend this or implement your own.
+ * RefInfo implementation of {@link IEnergyHandler}. Use/extend this or implement your own.
  *
  * @author King Lemming
  *

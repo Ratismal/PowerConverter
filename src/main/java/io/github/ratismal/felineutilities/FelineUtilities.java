@@ -1,37 +1,33 @@
 package io.github.ratismal.felineutilities;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
-import io.github.ratismal.felineutilities.Listeners.PlayerRenderListener;
-import io.github.ratismal.felineutilities.handler.ConfigHandler;
-import io.github.ratismal.felineutilities.init.ModBlocks;
-import io.github.ratismal.felineutilities.init.ModItems;
-import io.github.ratismal.felineutilities.init.Whitelist;
-import io.github.ratismal.felineutilities.proxy.IProxy;
-import io.github.ratismal.felineutilities.reference.Reference;
-import io.github.ratismal.felineutilities.util.Logger;
-import net.minecraftforge.common.MinecraftForge;
+import io.github.ratismal.felineutilities.common.core.proxy.IProxy;
+import io.github.ratismal.felineutilities.common.lib.RefInfo;
+import io.github.ratismal.felineutilities.common.core.util.Logger;
 
 
 /**
- * FelineUtilities Mod
+ * FelineUtilities RefInfo
  * - By Ratismal
  */
 
-@Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
+@cpw.mods.fml.common.Mod(modid = RefInfo.MODID, name = RefInfo.NAME, version = RefInfo.VERSION, guiFactory = RefInfo.GUI_FACTORY_CLASS)
 public class FelineUtilities {
 
-	@Mod.Instance(Reference.MODID)
+    private static int modGuiIndex = 0;
+
+    public static final int GUI_BASE_BLOCK = modGuiIndex++;
+    public static final int GUI_TEST_MACHINE_RF = modGuiIndex++;
+
+	@cpw.mods.fml.common.Mod.Instance(RefInfo.MODID)
 	public static FelineUtilities instance;
 
-	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS,
-			serverSide = Reference.SERVER_PROXY_CLASS)
+	@SidedProxy(clientSide = RefInfo.CLIENT_PROXY_CLASS,
+			serverSide = RefInfo.SERVER_PROXY_CLASS)
 	public static IProxy proxy;
 
 	@EventHandler

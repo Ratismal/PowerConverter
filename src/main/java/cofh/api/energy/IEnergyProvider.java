@@ -5,7 +5,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 /**
  * Implement this interface on Tile Entities which should provide energy, generally storing it in one or more internal {@link IEnergyStorage} objects.
  * <p>
- * A reference implementation is provided {@link TileEnergyHandler}.
+ * A lib implementation is provided {@link TileEnergyHandler}.
  *
  * @author King Lemming
  *

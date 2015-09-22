@@ -1,8 +1,8 @@
 package io.github.ratismal.felineutilities.client.render;
 
-import io.github.ratismal.felineutilities.entity.EntityEyePlunder;
-import io.github.ratismal.felineutilities.init.ModItems;
-import io.github.ratismal.felineutilities.reference.Reference;
+import io.github.ratismal.felineutilities.common.entity.EntityEyePlunder;
+import io.github.ratismal.felineutilities.common.init.ModItems;
+import io.github.ratismal.felineutilities.common.lib.RefInfo;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
@@ -18,7 +18,7 @@ import org.lwjgl.opengl.GL11;
  * Created by Ratismal on 2015-09-17.
  */
 public class RenderEyePlunder extends Render {
-    private static final ResourceLocation texture = new ResourceLocation(Reference.RESOURCE_PREFIX + "textures/items/eyePlunder_0.png");
+    private static final ResourceLocation texture = new ResourceLocation(RefInfo.RESOURCE_PREFIX + "textures/items/eyePlunder_0.png");
 
     private void doRender(EntityEyePlunder entity, double x, double y, double z, float f) {
 
