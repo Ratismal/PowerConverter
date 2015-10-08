@@ -1,10 +1,31 @@
-#Blocks
+# Blocks
 tile.felineutilities:testMachineRF.name=Test Machine - RF
 
-#Items
+# Items
 item.felineutilities:moduleTest.name=Test Module
 item.felineutilities:moduleBlank.name=Blank Module
 item.felineutilities:eyePlunder.name=Eye of Plunder
 item.felineutilities:cameraBroken.name=Broken Camera
 item.felineutilities:featherHeavy.name=Heavy Feather
 item.felineutilities:pillowTransient.name=Transient Pillow
+item.felineutilities:guide.name=Feline Utilities Guidebook
+
+# ========================= #
+# --------- GUIDE --------- #
+# ========================= #
+
+# Guide Categories
+felineutilities.category.basic=Basics
+felineutilities.category.incomplete=Incomplete
+
+
+# Guide Entries
+# - TEST
+felineutilities.entry.test=Test page
+felineutilities.page.test0=This is a test page. I'm doing tests. Tests are fun. Especially when they work.<br>When they don't work they suck.
+felineutilities.page.test1=This is a second test page. I hate testing.
+
+# - PLUNDER EYE
+felineutilities.entry.eyeplunder=Eye of Plunder
+felineutilities.page.eyeplunder0=The Eye of Plunder is a strange artifact that seems to be able to absorb the souls of other creatures. Simply use it on one and watch the fireworks. This process is irreversible. The Eye does not seem to work on other players.<br>You are sure that you'll find uses for these souls.
+felineutilities.page.eyeplunder1=What could Yuu possibly do with this?<br>It seems to be a gateway to the incomplete.

@@ -27,7 +27,7 @@ public class FelineUtilities {
 	public static FelineUtilities instance;
 
 	@SidedProxy(clientSide = RefInfo.CLIENT_PROXY_CLASS,
-			serverSide = RefInfo.SERVER_PROXY_CLASS)
+			serverSide = RefInfo.COMMON_PROXY_CLASS)
 	public static IProxy proxy;
 
 	@EventHandler

@@ -15,6 +15,7 @@ public class RefGuide {
         public static final String PREFIX = BASE.PREFIX + ".category.";
 
         public static final String BASIC = "basic";
+        public static final String INCOMPLETE = "incomplete";
 
     }
 
@@ -23,6 +24,7 @@ public class RefGuide {
         public static final String PREFIX = BASE.PREFIX + ".entry.";
 
         public static final String TEST = "test";
+        public static final String EYE_PLUNDER = "eyeplunder";
 
     }
 

@@ -13,7 +13,7 @@ public class CategoryA extends GuideCategory {
 
     public CategoryA(String unlocalizedName, int priority) {
         super(RefGuide.CATEGORY.PREFIX + unlocalizedName);
-        setIcon(new ResourceLocation(RefResource.GUIDE.PREFIX_CATEGORIES + unlocalizedName));
+        setIcon(new ResourceLocation(RefResource.GUIDE.CATEGORY_BASIC));
         setPriority(priority);
     }
 

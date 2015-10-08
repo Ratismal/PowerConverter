@@ -14,8 +14,6 @@ public interface IGuiGuideEntry {
 
     public int getLeft();
 
-    public int getRight();
-
     public int getTop();
 
     public int getWidth();

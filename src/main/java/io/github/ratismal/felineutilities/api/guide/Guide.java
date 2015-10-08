@@ -1,5 +1,7 @@
 package io.github.ratismal.felineutilities.api.guide;
 
+import io.github.ratismal.felineutilities.common.core.util.Logger;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +15,7 @@ public class Guide {
     private static List<GuideEntry> entries = new ArrayList<GuideEntry>();
 
     public static GuideCategory categoryBasic;
+    public static GuideCategory categoryIncomplete;
 
     public static void addCategory(GuideCategory category) {
         categories.add(category);
@@ -23,6 +26,7 @@ public class Guide {
     }
 
     public static void addEntry(GuideEntry entry, GuideCategory category) {
+        Logger.Debug.info("Adding entry " + entry.getUnlocalizedName() + " to " + category.getUnlocalizedName());
         entries.add(entry);
         category.entries.add(entry);
     }

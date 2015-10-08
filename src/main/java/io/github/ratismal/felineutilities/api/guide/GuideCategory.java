@@ -53,4 +53,6 @@ public class GuideCategory implements Comparable<GuideCategory> {
     public int compareTo(GuideCategory category) {
         return priority == category.priority ? id - category.id : category.priority - priority;
     }
+
+
 }

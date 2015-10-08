@@ -1,5 +1,6 @@
 package io.github.ratismal.felineutilities.api.guide;
 
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 import java.util.ArrayList;
@@ -18,10 +19,19 @@ public class GuideEntry implements Comparable<GuideEntry> {
     private int priority = 1;
     //List of pages in the entry
     public List<GuidePage> pages = new ArrayList<GuidePage>();
+    public ItemStack icon = null;
 
     public GuideEntry(String unlocalizedName, GuideCategory category) {
         this.unlocalizedName = unlocalizedName;
         this.category = category;
+    }
+
+    public ItemStack getIcon() {
+        return icon;
+    }
+
+    public void setIcon(ItemStack stack) {
+        icon = stack;
     }
 
     public GuideEntry setPages(GuidePage... page) {

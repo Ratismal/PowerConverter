@@ -13,6 +13,7 @@ public class ModItems {
     public static final ItemFU featherHeavy = new ItemFeatherHeavy();
     public static final ItemFU pillowTransient = new ItemPillowTransient();
     public static final ItemFU bowPlain = new ItemBowPlain();
+    public static final ItemFU guide = new ItemGuide();
 
 	public static void init() {
 
@@ -26,6 +27,7 @@ public class ModItems {
         GameRegistry.registerItem(featherHeavy, RefName.Items.featherHeavy);
         GameRegistry.registerItem(pillowTransient, RefName.Items.pillowTransient);
         GameRegistry.registerItem(bowPlain, RefName.Items.bowPlain);
+        GameRegistry.registerItem(guide, RefName.Items.guide);
 
 	}
 

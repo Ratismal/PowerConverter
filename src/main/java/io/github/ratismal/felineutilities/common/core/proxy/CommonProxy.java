@@ -8,11 +8,13 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import io.github.ratismal.felineutilities.FelineUtilities;
+import io.github.ratismal.felineutilities.common.core.handler.GuiHandler;
 import io.github.ratismal.felineutilities.common.core.listener.PlayerFlyableFallListener;
 import io.github.ratismal.felineutilities.common.core.listener.PlayerRenderListener;
 import io.github.ratismal.felineutilities.api.gui.GuiProxy;
 import io.github.ratismal.felineutilities.common.component.tileentity.TileTestRFMachine;
 import io.github.ratismal.felineutilities.common.core.handler.ConfigHandler;
+import io.github.ratismal.felineutilities.common.guide.GuideData;
 import io.github.ratismal.felineutilities.common.init.ModBlocks;
 import io.github.ratismal.felineutilities.common.init.ModItems;
 import io.github.ratismal.felineutilities.common.init.Whitelist;
@@ -23,11 +25,14 @@ public abstract class CommonProxy implements IProxy {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
+
         ConfigHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigHandler());
         ModItems.init();
         ModBlocks.init();
         registerTileEntities();
+
+        GuideData.init();
 
         Whitelist.init();
         FMLInterModComms.sendMessage("Waila", "register", "io.github.ratismal.felineutilities.common.core.waila.WailaSupport.load");
@@ -36,7 +41,8 @@ public abstract class CommonProxy implements IProxy {
     @Override
     public void init(FMLInitializationEvent event) {
 
-        NetworkRegistry.INSTANCE.registerGuiHandler(FelineUtilities.instance, new GuiProxy());
+        NetworkRegistry.INSTANCE.registerGuiHandler(FelineUtilities.instance, new GuiHandler());
+
         registerEventListeners();
     }
 
