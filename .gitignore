@@ -15,3 +15,5 @@ PowerConverter.iml
 PowerConverter.ipr
 PowerConverter.iws
 README.txt
+*.psd
+*.tmp
